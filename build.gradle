@@ -1,0 +1,91 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'http://repo.enonic.net/public'
+        }
+    }
+
+    dependencies {
+        classpath 'com.enonic.xp.gradle:gradle-plugin:1.0.3'
+        classpath 'com.eriwen:gradle-js-plugin:1.12.1'
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'com.enonic.xp.gradle.module'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'com.eriwen.gradle.js'
+apply plugin: 'base'
+
+version = '1.0.0-SNAPSHOT'
+group = 'com.enonic.xp.modules'
+
+module {
+    displayName = 'Module Disqus'
+}
+
+dependencies {
+    compile 'com.enonic.xp:core-api:5.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://repo.enonic.net/public'
+    }
+}
+
+publishing {
+    publications {
+        mavenJava( MavenPublication ) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url 'http://repo.enonic.net/artifactory/public'
+        }
+    }
+}
+
+// Declare your sources
+javascript.source {
+    custom {
+        js {
+            srcDir "src/main/resources/cms/assets/js"
+            include "*.js"
+            //exclude "*.min.js"
+        }
+    }
+    vendor {
+        js {
+            srcDir "src/main/resources/cms/assets/js/vendor"
+            include "*.js"
+        }
+    }
+    jquery {
+        js {
+            srcDir "src/main/resources/cms/assets/js/vendor/jquery"
+            include "*.js"
+        }
+    }
+}
+
+minifyJs {
+    source = javascript.source.custom.js.files
+    dest = file("${buildDir}/resources/main/cms/assets/js/custom.min.js")
+    closure {
+        warningLevel = 'QUIET'
+    }
+}
+
+
+// Configure the built-in task
+combineJs {
+    source = javascript.source.jquery.js.files + javascript.source.vendor.js.files + minifyJs
+    dest = file("${buildDir}/resources/main/cms/assets/js/all.js")
+}
+
+jar.dependsOn += combineJs
