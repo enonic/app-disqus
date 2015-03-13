@@ -1,10 +1,6 @@
 # Disqus module for Enonic XP
 
-Add Disqus comments to pages on a website
-
-## Work in progress
-
-This is still being developed and is not ready for production yet.
+Add Disqus comments to pages on a website. This does not yet support Single Sign On (SSO). It also does not yet support comment count.
 
 ## Building
 
@@ -18,3 +14,8 @@ Put the jar file from build/lib into the XP_HOME/deploy directory.
 * Create a Disqus profile and note the shortname.  https://disqus.com/admin/create/
 * Add this module to your XP site.
 * Add the shortname to the module configuration.
+* Add the disqus component part to a region in your template or page content where you want the Disqus comments to appear.
+
+## Testing
+
+Unfortunately, Disqus can only be tested on a live server. A separate shortname can be created for a test environment.

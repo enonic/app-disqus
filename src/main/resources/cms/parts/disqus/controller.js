@@ -8,6 +8,7 @@ exports.get = function(req) {
     var site = execute('portal.getSite');
     var moduleConfig = site.moduleConfigs[module.name];
     var disqus = {};
+    var style  = null;
 
     disqus.shortname = moduleConfig.shortname? moduleConfig.shortname : 'configure';
     disqus.identifier = content._id;
@@ -16,10 +17,22 @@ exports.get = function(req) {
         path: content._path
     });
 
-    var params = {
-        disqus: disqus
+    stk.log(disqus);
+
+    stk.log('req.mode');
+    stk.log(req.mode);
+
+    // Ensure that the part can be selected in live-edit.
+    if (req.mode == 'edit') {
+        style = 'min-height: 100px;'
     }
 
-    var view = resolve('categories.html');
+    var params = {
+        disqus: disqus,
+        style: style,
+        mode: req.mode
+    }
+
+    var view = resolve('disqus.html');
     return stk.view.render(view, params);
 };

@@ -1,4 +1,8 @@
-<div><!-- This code goes where you want the Disqus comments to appear. -->
+<div data-th-style="${style}">
+    <!-- This code goes where you want the Disqus comments to appear. -->
+    <div data-th-if="${style}">
+        <h2>Disqus component part</h2>
+    </div>
     <div id="disqus_thread"></div>
     <script type="text/javascript" data-th-inline="javascript">
 /*<![CDATA[*/
@@ -7,6 +11,7 @@
         var disqus_identifier = /*[[${disqus.identifier}]]*/ ''; // a unique identifier for each page where Disqus is present
         var disqus_title = /*[[${disqus.title}]]*/ ''; // a unique title for each page where Disqus is present
         var disqus_url = /*[[${disqus.url}]]*/ ''; // a unique URL for each page where Disqus is present
+        //var disqus_developer = 1; // This is deprecated
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
@@ -18,18 +23,4 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-
-    <!-- This code goes before the closing <body> to enable comment count
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = 'your-shortname';
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script'); s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>-->
 </div>
