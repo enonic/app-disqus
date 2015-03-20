@@ -13,5 +13,9 @@
         <label>Shortname</label>
         <occurrences minimum="1" maximum="1"/>
       </input>
+      <input type="TextLine" name="siteUrl">
+        <label>Site base URL</label>
+        <occurrences minimum="1" maximum="1"/>
+      </input>
     </config>
 </module>
