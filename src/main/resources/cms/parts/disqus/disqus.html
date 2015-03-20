@@ -2,25 +2,27 @@
     <!-- This code goes where you want the Disqus comments to appear. -->
     <div data-th-if="${style}">
         <h2>Disqus component part</h2>
+        <p>Not available in Live Edit or Preview modes.</p>
     </div>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript" data-th-inline="javascript">
-/*<![CDATA[*/
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = /*[[${disqus.shortname}]]*/ ''; // Required - Replace example with your forum shortname
-        var disqus_identifier = /*[[${disqus.identifier}]]*/ ''; // a unique identifier for each page where Disqus is present
-        var disqus_title = /*[[${disqus.title}]]*/ ''; // a unique title for each page where Disqus is present
-        var disqus_url = /*[[${disqus.url}]]*/ ''; // a unique URL for each page where Disqus is present
-        //var disqus_developer = 1; // This is deprecated
+    <div data-th-if="${!style}">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript" data-th-inline="javascript">
+    /*<![CDATA[*/
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = /*[[${disqus.shortname}]]*/ ''; // Required - Replace example with your forum shortname
+            var disqus_identifier = /*[[${disqus.identifier}]]*/ ''; // a unique identifier for each page where Disqus is present
+            var disqus_title = /*[[${disqus.title}]]*/ ''; // a unique title for each page where Disqus is present
+            var disqus_url = /*[[${disqus.url}]]*/ ''; // a unique URL for each page where Disqus is present
+            //var disqus_developer = 1; // This is deprecated
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-/*]]>*/
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+    /*]]>*/
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
 </div>

@@ -9,6 +9,9 @@ exports.get = function(req) {
     var moduleConfig = site.moduleConfigs[module.name] || {};
     var disqus = {};
     var style  = null;
+    if (req.mode == 'edit' || req.mode == 'preview') {
+        style = 'min-height: 100px; background-color:#BBBBBB; text-align: center; padding: 10px;'
+    }
 
     disqus.shortname = moduleConfig.shortname? moduleConfig.shortname : 'configure';
     disqus.identifier = content._id;
