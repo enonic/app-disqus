@@ -1,38 +1,48 @@
 var stk = require('stk/stk');
 
-exports.get = function(req) {
+exports.get = handleGet;
 
-    var content = execute('portal.getContent');
-    var component = execute('portal.getComponent');
-    var config = component.config;
-    var site = execute('portal.getSite');
-    var moduleConfig = site.moduleConfigs[module.name] || {};
-    var disqus = {};
-    var style  = null;
-    if (req.mode == 'edit' || req.mode == 'preview') {
-        style = 'min-height: 100px; background-color:#BBBBBB; text-align: center; padding: 10px;'
+function handleGet(req) {
+    var me = this;
+
+    function renderView() {
+        var view = resolve('disqus.html');
+        var model = createModel();
+        return stk.view.render(view, model);
     }
 
-    disqus.shortname = moduleConfig.shortname? moduleConfig.shortname : 'configure';
-    disqus.identifier = content._id;
-    disqus.title = content.displayName;
-    disqus.url = moduleConfig.siteUrl + execute('portal.pageUrl', {
-        path: content._path
-    });
+    function createModel() {
+        var content = execute('portal.getContent');
+        var component = execute('portal.getComponent');
+        var config = component.config;
+        var site = execute('portal.getSite');
+        var moduleConfig = site.moduleConfigs[module.name] || {};
+        var disqus = {};
+        var style  = null;
+        if (req.mode == 'edit' || req.mode == 'preview') {
+            style = 'min-height: 100px; background-color:#BBBBBB; text-align: center; padding: 10px;'
+        }
 
-    //stk.log(req);
+        disqus.shortname = moduleConfig.shortname? moduleConfig.shortname : 'configure';
+        disqus.identifier = content._id;
+        disqus.title = content.displayName;
+        disqus.url = moduleConfig.siteUrl + execute('portal.pageUrl', {
+            path: content._path
+        });
 
-    // Ensure that the part can be selected in live-edit.
-    if (req.mode == 'edit') {
-        style = 'min-height: 100px;'
+        // Ensure that the part can be selected in live-edit.
+        if (req.mode == 'edit') {
+            style = 'min-height: 100px;'
+        }
+
+        var model = {
+            disqus: disqus,
+            style: style,
+            mode: req.mode
+        }
+
+        return model;
     }
 
-    var params = {
-        disqus: disqus,
-        style: style,
-        mode: req.mode
-    }
-
-    var view = resolve('disqus.html');
-    return stk.view.render(view, params);
-};
+    return renderView();
+}
