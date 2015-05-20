@@ -1,4 +1,4 @@
-var stk = require('stk/stk');
+var util = require('utilities');
 
 exports.get = handleGet;
 
@@ -8,7 +8,12 @@ function handleGet(req) {
     function renderView() {
         var view = resolve('disqus.html');
         var model = createModel();
-        return stk.view.render(view, model);
+        return {
+            body: execute('thymeleaf.render', {
+                view: view,
+                model: model
+            })
+        };
     }
 
     function createModel() {
