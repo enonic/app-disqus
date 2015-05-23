@@ -29,7 +29,7 @@ To use either of these parts, the module must be added to the site, and the site
 ### Disqus comment count
 
 * Add the "Disqus comment count" part to any page where you want the comment count to appear on a list of links.
-* Each link that will show a comment count must end with \#disqus_thread, for example: http://example.com/article\#disqus_thread
+* Each link that will show a comment count must end with \#disqus_thread, for example: http://example.com/article#disqus_thread
 
 ## Testing
 
