@@ -20,14 +20,14 @@ apply plugin: 'com.eriwen.gradle.js'
 apply plugin: 'base'
 
 version = '1.0.0-SNAPSHOT'
-group = 'com.enonic.xp.modules'
+group = 'com.enonic.xp.social'
 
 module {
     displayName = 'Module Disqus'
 }
 
 dependencies {
-    compile 'com.enonic.xp:core-api:5.2.0-SNAPSHOT'
+    compile 'com.enonic.xp:core-api:5.2.0'
 }
 
 repositories {
