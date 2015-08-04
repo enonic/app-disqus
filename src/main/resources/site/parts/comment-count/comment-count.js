@@ -1,19 +1,22 @@
 var util = require('utilities');
 
+var portal = require('/lib/xp/portal');
+var thymeleaf = require('/lib/xp/thymeleaf');
+
 exports.get = handleGet;
 
 function handleGet(req) {
     var me = this;
-    me.site = execute('portal.getSite');
-    me.moduleConfig = me.site.moduleConfigs[module.name] || {};
-    me.shortname = me.moduleConfig.shortname;
+    me.site = portal.getSite();
+    me.siteConfig = me.site.siteConfigs[module.name] || {};
+    me.shortname = me.siteConfig.shortname;
 
     function renderView() {
         return {
-            body: execute('thymeleaf.render', {
-                view: resolve('comment-count.html'),
-                model: createModel()
-            }),
+            body: thymeleaf.render(
+                resolve('comment-count.html'),
+                createModel()
+            ),
             contentType: 'text/html',
             pageContributions: {
                 bodyEnd: util.dqScript(me.shortname)

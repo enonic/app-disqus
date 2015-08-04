@@ -1,4 +1,6 @@
 var util = require('utilities');
+var portal = require('/lib/xp/portal');
+var thymeleaf = require('/lib/xp/thymeleaf');
 
 exports.get = handleGet;
 
@@ -9,29 +11,26 @@ function handleGet(req) {
         var view = resolve('disqus.html');
         var model = createModel();
         return {
-            body: execute('thymeleaf.render', {
-                view: view,
-                model: model
-            })
+            body: thymeleaf.render(view, model)
         };
     }
 
     function createModel() {
-        var content = execute('portal.getContent');
-        var component = execute('portal.getComponent');
+        var content = portal.getContent();
+        var component = portal.getComponent();
         var config = component.config;
-        var site = execute('portal.getSite');
-        var moduleConfig = site.moduleConfigs[module.name] || {};
+        var site = portal.getSite();
+        var siteConfig = site.siteConfigs[module.name] || {};
         var disqus = {};
         var style  = null;
         if (req.mode == 'edit' || req.mode == 'preview') {
             style = 'min-height: 100px; background-color:#BBBBBB; text-align: center; padding: 10px;'
         }
 
-        disqus.shortname = moduleConfig.shortname? moduleConfig.shortname : 'configure';
+        disqus.shortname = siteConfig.shortname? siteConfig.shortname : 'configure';
         disqus.identifier = content._id;
         disqus.title = content.displayName;
-        disqus.url = moduleConfig.siteUrl + execute('portal.pageUrl', {
+        disqus.url = siteConfig.siteUrl + portal.pageUrl({
             path: content._path
         });
 
