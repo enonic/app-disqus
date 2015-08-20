@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <site>
-    <display-name>Disqus</display-name>
-    <info>Add Disqus comments to your site.</info>
-    <url></url>
-    <vendor>
-        <name>Enonic</name>
-        <author>Michael Lazell</author>
-        <url>https://www.enonic.com</url>
-    </vendor>
-    <dependencies system-min-version="6.0.0" system-max-version="6.1.0"/>
-    <config>
-      <input type="TextLine" name="shortname">
-        <label>Shortname</label>
-        <occurrences minimum="1" maximum="1"/>
-      </input>
-      <input type="TextLine" name="siteUrl">
-        <label>Site base URL</label>
-        <occurrences minimum="1" maximum="1"/>
-      </input>
-    </config>
+  <display-name>Disqus</display-name>
+  <info>Add Disqus comments to your site.</info>
+  <url></url>
+  <vendor>
+    <name>Enonic</name>
+    <author>Michael Lazell</author>
+    <url>https://www.enonic.com</url>
+  </vendor>
+  <dependencies system-min-version="6.0.0" system-max-version="6.1.0"/>
+  <config>
+    <input type="TextLine" name="shortname">
+      <label>Shortname</label>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+  </config>
 </site>

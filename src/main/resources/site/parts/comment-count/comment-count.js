@@ -7,8 +7,7 @@ exports.get = handleGet;
 
 function handleGet(req) {
     var me = this;
-    me.site = portal.getSite();
-    me.siteConfig = me.site.siteConfigs[module.name] || {};
+    me.siteConfig = portal.getSiteConfig();
     me.shortname = me.siteConfig.shortname;
 
     function renderView() {

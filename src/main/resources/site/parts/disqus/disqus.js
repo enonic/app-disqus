@@ -19,8 +19,7 @@ function handleGet(req) {
         var content = portal.getContent();
         var component = portal.getComponent();
         var config = component.config;
-        var site = portal.getSite();
-        var siteConfig = site.siteConfigs[module.name] || {};
+        var siteConfig = portal.getSiteConfig();
         var disqus = {};
         var style  = null;
         if (req.mode == 'edit' || req.mode == 'preview') {
@@ -30,8 +29,9 @@ function handleGet(req) {
         disqus.shortname = siteConfig.shortname? siteConfig.shortname : 'configure';
         disqus.identifier = content._id;
         disqus.title = content.displayName;
-        disqus.url = siteConfig.siteUrl + portal.pageUrl({
-            path: content._path
+        disqus.url = portal.pageUrl({
+            path: content._path,
+            type: 'absolute'
         });
 
         // Ensure that the part can be selected in live-edit.
