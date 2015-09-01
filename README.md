@@ -1,4 +1,4 @@
-# Disqus module for Enonic XP
+# Disqus app for Enonic XP version 6
 
 Add Disqus comments to pages on a website.
 
@@ -7,20 +7,19 @@ Add Disqus comments to pages on a website.
 Gradle is required to build the project. From the base of the project, enter ./gradlew in the terminal or on Windows, double-click the
 gradlew.bat file. Or type 'gradle clean build' from the command line.
 
-Put the jar file from build/lib into the XP_HOME/deploy directory.
+Put the jar file from the project's build/lib into the $XP_HOME/deploy directory.
 
 ## Documentation
 
-This module has two component parts: "Disqus" should be added to a page where you want the comments to appear. The other part is called
+This app has two component parts: "Disqus" should be added to a page where you want the comments to appear. The other part is called
 "Disqus comment count" and this should be added to any page where you want the comment count to appear, for example, on a list of
 articles.
 
-To use either of these parts, the module must be added to the site, and the site configuration must be filled out.
+To use either of these parts, the app must be added to the site, and the site configuration must be filled out.
 
 * Create a Disqus profile and note the shortname. https://disqus.com/admin/create/
-* Add this module to your XP site. Edit the site and add the module with the dropdown selector.
-* Add the shortname to the module configuration.
-* Add the website's base URL to the module configuration, for example, http://www.example.com
+* To add this app to your XP site, edit the site content and add the Disqus app with the "Applications" dropdown selector.
+* Add the shortname to the app configuration.
 
 ### Disqus comments
 
