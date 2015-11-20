@@ -1,7 +1,6 @@
-var util = require('utilities');
-
 var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/xp/thymeleaf');
+//var util = require('utilities');
 
 exports.get = handleGet;
 
@@ -9,6 +8,7 @@ function handleGet(req) {
     var me = this;
     me.siteConfig = portal.getSiteConfig();
     me.shortname = me.siteConfig.shortname;
+    me.contribution = '<script id="dsq-count-scr" src="//' + me.shortname + '.disqus.com/count.js" async></script>';
 
     function renderView() {
         return {
@@ -18,7 +18,7 @@ function handleGet(req) {
             ),
             contentType: 'text/html',
             pageContributions: {
-                bodyEnd: util.dqScript(me.shortname)
+                bodyEnd: me.contribution
             }
         };
     }
@@ -33,6 +33,7 @@ function handleGet(req) {
 
         var model = {
             style: style,
+            edit: req.mode == 'edit' ? true : false
         }
 
         return model;
