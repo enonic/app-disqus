@@ -1,10 +1,10 @@
 <div data-th-style="${style}">
     <!-- This code goes where you want the Disqus comments to appear. -->
-    <div data-th-if="${style}">
-        <h2>Disqus component part</h2>
+    <div data-th-if="${!live}" data-th-remove="tag">
+        <h3>Disqus comments part</h3>
         <p>Not available in Page Editor or Preview modes.</p>
     </div>
-    <div data-th-if="${!style}">
+    <div data-th-if="${live}">
         <div id="disqus_thread"></div>
         <script type="text/javascript" data-th-inline="javascript">
     /*<![CDATA[*/

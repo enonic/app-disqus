@@ -1,6 +1,6 @@
-//var util = require('utilities');
 var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/xp/thymeleaf');
+//var util = require('utilities');
 
 exports.get = handleGet;
 
@@ -21,9 +21,11 @@ function handleGet(req) {
         var config = component.config;
         var siteConfig = portal.getSiteConfig();
         var disqus = {};
-        var style  = null;
-        if (req.mode == 'edit' || req.mode == 'preview') {
-            style = 'min-height: 100px; background-color:#BBBBBB; text-align: center; padding: 10px;'
+        var style = null;
+        var live = true;
+        if (req.mode != 'live') {
+            style = 'min-height: 100px; text-align:center; background-color:#ffffff; border: 1px solid #333333; border-radius:5px;';
+            live = false;
         }
 
         disqus.shortname = siteConfig.shortname? siteConfig.shortname : 'configure';
@@ -34,15 +36,10 @@ function handleGet(req) {
             type: 'absolute'
         });
 
-        // Ensure that the part can be selected in live-edit.
-        if (req.mode == 'edit') {
-            style = 'min-height: 100px;'
-        }
-
         var model = {
             disqus: disqus,
             style: style,
-            mode: req.mode
+            live: live
         }
 
         return model;
