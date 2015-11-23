@@ -30,8 +30,13 @@ name of the article, and one that has \#disqus_thread and no text. For example: 
 
 | Version        | XP version |
 | ------------- | ------------- |
+| 1.0.1 | 6.2.1 |
 | 1.0.0 | 6.2.1 |
 
+## Changelog
+###Version 1.0.1 
+
+Changed the app name for new naming convention.
 
 ## Testing
 
