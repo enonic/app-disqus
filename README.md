@@ -5,8 +5,10 @@ displayed.
 
 ## Building and deploying
 
-Build this app with gradle. In the terminal, from the root of the project, enter `./gradlew build`. On Windows, just enter `gradlew build` 
-in the command line from the project root. Next, move the JAR file from build/libs to your $XP_HOME/deploy directory. The Disqus comments 
+There are two options. One is to simply download the app [JAR file](http://repo.enonic.com/public/com/enonic/social/app-disqus/1.0.2/app-disqus-1.0.2.jar) and move it to the XP installation's `$XP_HOME/deploy` folder.
+
+Or you can build this app with gradle. In the terminal, from the root of the project, enter `./gradlew build`. On Windows, just enter `gradlew build` 
+in the command line from the project root. Next, move the JAR file from `build/libs` to your `$XP_HOME/deploy` directory. The Disqus comments 
 app will now be available to add to your websites through the Content Manager app.
 
 ## How to use this app
@@ -14,6 +16,7 @@ app will now be available to add to your websites through the Content Manager ap
 * Visit the [Disqus website](https://disqus.com/admin/create/) and create a site profile. Note the shortname for your website.
 * Next, add this app to your XP site. Edit the *site content* and add the Disqus app with the "Applications" dropdown selector.
 * Add the shortname to the app configuration.
+* Add the sitename to the app configuration.
 
 This app has two component parts: "Disqus comments" and "Disqus comment count". 
 
@@ -30,13 +33,20 @@ name of the article, and one that has \#disqus_thread and no text. For example: 
 
 | Version        | XP version |
 | ------------- | ------------- |
+| 1.1.0 | 6.3.1 |
 | 1.0.1 | 6.2.1 |
 | 1.0.0 | 6.2.1 |
 
 ## Changelog
-###Version 1.0.1 
+###Version 1.1.0
 
-Changed the app name for new naming convention.
+* New embed script.
+* Added sitename to configuration.
+* Updated for XP 6.3.1 libs
+
+### Version 1.0.1 
+
+* Changed the app name for new naming convention.
 
 ## Testing
 

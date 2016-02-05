@@ -9,7 +9,7 @@ target/
 *.iml
 superhero.iml
 *.ipr
-.idea
+.idea/
 .sass-cache
 npm-debug.log
 .tscache
