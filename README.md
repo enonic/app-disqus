@@ -5,7 +5,7 @@ displayed.
 
 ## Building and deploying
 
-There are two options. One is to simply download the app [JAR file](http://repo.enonic.com/public/com/enonic/social/app-disqus/1.0.2/app-disqus-1.0.2.jar) and move it to the XP installation's `$XP_HOME/deploy` folder.
+There are two options. One is to simply download the app [JAR file](http://repo.enonic.com/public/com/enonic/social/app-disqus/1.1.0/app-disqus-1.1.0.jar) and move it to the XP installation's `$XP_HOME/deploy` folder.
 
 Or you can build this app with gradle. In the terminal, from the root of the project, enter `./gradlew build`. On Windows, just enter `gradlew build` 
 in the command line from the project root. Next, move the JAR file from `build/libs` to your `$XP_HOME/deploy` directory. The Disqus comments 
