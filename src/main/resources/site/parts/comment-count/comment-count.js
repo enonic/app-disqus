@@ -7,7 +7,7 @@ exports.get = handleGet;
 function handleGet(req) {
     var me = this;
     me.siteConfig = portal.getSiteConfig();
-    me.shortname = me.siteConfig.shortname; // Obsolete setteing now?
+    me.shortname = me.siteConfig.shortname; // Obsolete setting now?
     me.sitename = me.siteConfig.sitename;
     me.contribution = '<script id="dsq-count-scr" src="//' + me.sitename + '.disqus.com/count.js" async></script>';
 
