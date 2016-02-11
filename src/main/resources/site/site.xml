@@ -2,11 +2,7 @@
 <site>
   <config>
     <input type="TextLine" name="shortname">
-      <label>Shortname</label>
-      <occurrences minimum="1" maximum="1"/>
-    </input>
-    <input type="TextLine" name="sitename">
-      <label>Site name (in Disqus)</label>
+      <label>Shortname (see your Disqus account)</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
   </config>

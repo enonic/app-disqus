@@ -10,6 +10,11 @@ function handleGet(req) {
     me.shortname = me.siteConfig.shortname;
     me.contribution = '<script id="dsq-count-scr" src="//' + me.shortname + '.disqus.com/count.js" async></script>';
 
+    // Don't add the script when in edit mode
+    if (req.mode == 'edit') {
+      me.contribution = null;
+    }
+
     function renderView() {
         return {
             body: thymeleaf.render(
