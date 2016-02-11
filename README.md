@@ -11,6 +11,8 @@ Or you can build this app with gradle. In the terminal, from the root of the pro
 in the command line from the project root. Next, move the JAR file from `build/libs` to your `$XP_HOME/deploy` directory. The Disqus comments
 app will now be available to add to your websites through the Content Manager app.
 
+If you are upgrading to a newer version of this app, make sure to remove the old version's JAR file from the `$XP_HOME/deploy` directory.
+
 ## How to use this app
 
 * Visit the [Disqus website](https://disqus.com/admin/create/) and create a site profile. Note the shortname for your website.
@@ -37,7 +39,13 @@ name of the article, and one that has \#disqus_thread and no text. For example: 
 | 1.0.0 | 6.2.1 |
 
 ## Changelog
-###Version 1.1.0
+
+### Version 1.1.1-SNAPSHOT
+
+* Removed sitename from configuration and changed it back to shortname to match Disqus documentation.
+* Upgraded the Gradle wrapper to use version 2.9
+
+### Version 1.1.0
 
 * New embed script.
 * Added sitename to configuration.
