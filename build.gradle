@@ -13,6 +13,7 @@ buildscript {
 }
 
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'com.enonic.xp.app'
 
 
@@ -24,7 +25,6 @@ app {
 }
 
 dependencies {
-//    include "com.enonic.xp:lib-content:${xpVersion}"
     include "com.enonic.xp:lib-portal:${xpVersion}"
     include "com.enonic.xp:lib-thymeleaf:${xpVersion}"
 }
@@ -37,10 +37,15 @@ repositories {
     }
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository( url: 'http://repo.enonic.com/artifactory/public' )
-        }
+publishing {
+  publications {
+    mavenJava( MavenPublication ) {
+      from components.java
     }
+  }
+  repositories {
+    maven {
+      url 'http://repo.enonic.net/artifactory/public'
+    }
+  }
 }
