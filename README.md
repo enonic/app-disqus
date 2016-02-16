@@ -34,11 +34,16 @@ name of the article, and one that has \#disqus_thread and no text. For example: 
 
 | Version        | XP version |
 | ------------- | ------------- |
+| 1.2.0 | 6.3.1 |
 | 1.1.0 | 6.3.1 |
 | 1.0.1 | 6.2.1 |
 | 1.0.0 | 6.2.1 |
 
 ## Changelog
+
+### Version 1.2.0
+
+* Changed app name and group to conform with Enonic defaults.
 
 ### Version 1.1.1-SNAPSHOT
 
