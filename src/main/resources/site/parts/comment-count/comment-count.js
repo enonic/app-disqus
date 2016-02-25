@@ -7,7 +7,7 @@ exports.get = handleGet;
 function handleGet(req) {
     var me = this;
     me.siteConfig = portal.getSiteConfig();
-    me.shortname = me.siteConfig.shortname;
+    me.shortname = me.siteConfig.shortname ? me.siteConfig.shortname : 'configure';;
     me.contribution = '<script id="dsq-count-scr" src="//' + me.shortname + '.disqus.com/count.js" async></script>';
 
     // Don't add the script when in edit mode

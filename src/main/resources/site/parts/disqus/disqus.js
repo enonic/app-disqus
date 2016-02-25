@@ -28,7 +28,7 @@ function handleGet(req) {
             live = false;
         }
 
-        disqus.shortname = siteConfig.shortname? siteConfig.shortname : 'configure';
+        disqus.shortname = siteConfig.shortname ? siteConfig.shortname : 'configure';
         disqus.identifier = content._id;
         disqus.title = content.displayName;
         disqus.url = portal.pageUrl({
