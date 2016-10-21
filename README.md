@@ -32,12 +32,10 @@ name of the article, and one that has \#disqus_thread and no text. For example: 
 
 ## Releases and Compatibility
 
-| Version        | XP version |
-| ------------- | ------------- |
-| 1.2.0 | 6.3.1 |
-| 1.1.0 | 6.3.1 |
-| 1.0.1 | 6.2.1 |
-| 1.0.0 | 6.2.1 |
+| App version | Required XP version | Download |
+| ----------- | ------------------- | -------- |
+| 1.2.0 | 6.3.1 | [Download](http://repo.enonic.com/public/com/enonic/app/disqus/1.2.0/disqus-1.2.0.jar) |
+| 1.3.0 | 6.7.0 | [Download](http://repo.enonic.com/public/com/enonic/app/disqus/1.3.0/disqus-1.2.0.jar) |
 
 ## Changelog
 
