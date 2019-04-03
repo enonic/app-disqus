@@ -1,51 +1,23 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-        maven {
-            url 'http://repo.enonic.com/public'
-        }
-    }
-
-    dependencies {
-        classpath "com.enonic.xp:gradle-plugin:${xpVersion}"
-    }
+plugins {
+    id 'maven-publish'
+    id 'com.enonic.xp.app' version '2.0.0'
 }
-
-apply plugin: 'maven'
-apply plugin: 'maven-publish'
-apply plugin: 'com.enonic.xp.app'
-
 
 app {
     name = project.appName
-    displayName = project.displayName
+    displayName = 'Disqus'
     vendorName = 'Enonic USA'
     vendorUrl = 'https://enonic.com'
+    systemVersion = "${xpVersion}"
 }
 
 dependencies {
     include "com.enonic.xp:lib-portal:${xpVersion}"
-    include "com.enonic.xp:lib-thymeleaf:${xpVersion}"
+    include "com.enonic.lib:lib-thymeleaf:2.0.0-B1"
 }
 
 repositories {
     mavenLocal()
     mavenCentral()
-    maven {
-        url 'http://repo.enonic.com/public'
-    }
-}
-
-publishing {
-  publications {
-    mavenJava( MavenPublication ) {
-      from components.java
-    }
-  }
-  repositories {
-    maven {
-      url 'http://repo.enonic.net/artifactory/public'
-    }
-  }
+    xp.enonicRepo()
 }
