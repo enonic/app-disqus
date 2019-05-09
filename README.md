@@ -1,11 +1,11 @@
-# Disqus app for Enonic XP version 7
+# Disqus app for Enonic XP
 
 Add [Disqus comments](https://disqus.com) to pages on [Enonic XP](https://github.com/enonic/xp) websites. The comment count can also be
 displayed.
 
 ## Building and deploying
 
-There are two options. One is to simply download the app [JAR file](http://repo.enonic.com/public/com/enonic/app/disqus/2.0.0/disqus-2.0.0.jar) and move it to the XP installation's `$XP_HOME/deploy` folder.
+There are two options. One is to simply download the app [JAR file](https://repo.enonic.com/public/com/enonic/app/disqus/1.4.0/disqus-1.4.0.jar) and move it to the XP installation's `$XP_HOME/deploy` folder.
 
 Or you can build this app with gradle. In the terminal, from the root of the project, enter `./gradlew build`. On Windows, just enter `gradlew build`
 in the command line from the project root. Next, move the JAR file from `build/libs` to your `$XP_HOME/deploy` directory. The Disqus comments
@@ -34,15 +34,19 @@ name of the article, and one that has \#disqus_thread and no text. For example: 
 
 | App version | Required XP version | Download |
 | ----------- | ------------------- | -------- |
-| 1.2.0 | 6.3.1 | [Download](http://repo.enonic.com/public/com/enonic/app/disqus/1.2.0/disqus-1.2.0.jar) |
-| 1.3.0 | 6.7.0 | [Download](http://repo.enonic.com/public/com/enonic/app/disqus/1.3.0/disqus-1.3.0.jar) |
-| 2.0.0 | 7.0.0 | [Download](http://repo.enonic.com/public/com/enonic/app/disqus/2.0.0/disqus-2.0.0.jar) |
+| 1.2.0 | 6.3.1 | [Download](https://repo.enonic.com/public/com/enonic/app/disqus/1.2.0/disqus-1.2.0.jar) |
+| 1.3.0 | 6.7.0 | [Download](https://repo.enonic.com/public/com/enonic/app/disqus/1.3.0/disqus-1.3.0.jar) |
+| 1.4.0 | 7.0.0 | [Download](https://repo.enonic.com/public/com/enonic/app/disqus/1.4.0/disqus-1.4.0.jar) |
 
 ## Changelog
 
-### Version 2.0.0
+### Version 1.4.0
 
 * Updated app to be compatible with XP 7.0
+
+### Version 1.3.0
+
+* Added root project name
 
 ### Version 1.2.0
 
