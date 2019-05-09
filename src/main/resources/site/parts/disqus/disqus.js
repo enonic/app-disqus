@@ -1,12 +1,9 @@
 var portal = require('/lib/xp/portal');
-var thymeleaf = require('/lib/xp/thymeleaf');
-//var util = require('utilities');
+var thymeleaf = require('/lib/thymeleaf');
 
 exports.get = handleGet;
 
 function handleGet(req) {
-    var me = this;
-
     function renderView() {
         var view = resolve('disqus.html');
         var model = createModel();
@@ -17,8 +14,6 @@ function handleGet(req) {
 
     function createModel() {
         var content = portal.getContent();
-        var component = portal.getComponent();
-        var config = component.config;
         var siteConfig = portal.getSiteConfig();
         var disqus = {};
         var style = null;
@@ -40,7 +35,7 @@ function handleGet(req) {
             disqus: disqus,
             style: style,
             live: live
-        }
+        };
 
         return model;
     }

@@ -1,13 +1,12 @@
 var portal = require('/lib/xp/portal');
-var thymeleaf = require('/lib/xp/thymeleaf');
-//var util = require('utilities');
+var thymeleaf = require('/lib/thymeleaf');
 
 exports.get = handleGet;
 
 function handleGet(req) {
     var me = this;
     me.siteConfig = portal.getSiteConfig();
-    me.shortname = me.siteConfig.shortname ? me.siteConfig.shortname : 'configure';;
+    me.shortname = me.siteConfig.shortname ? me.siteConfig.shortname : 'configure';
     me.contribution = '<script id="dsq-count-scr" src="//' + me.shortname + '.disqus.com/count.js" async></script>';
 
     // Don't add the script when in edit mode
