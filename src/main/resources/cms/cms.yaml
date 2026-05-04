@@ -1,0 +1,8 @@
+kind: "CMS"
+form:
+  - type: "TextLine"
+    name: "shortname"
+    label: "Shortname (see your Disqus account)"
+    occurrences:
+      min: 1
+      max: 1
